@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SphereAI - Mastering AI for Tech Companies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    /* ======= Tech AI Futuristic Background ======= */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #0f1827;
+      min-height: 100vh;
+      color: #fff;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Animated AI grid + particles */
+    #bg-animated {
+      position: fixed;
+      top:0; left:0; width:100vw; height:100vh; z-index:0;
+      pointer-events:none;
+      opacity:0.25;
+    }
+
+    /* ======= Header Section ======= */
+    header {
+      background: linear-gradient(90deg, #101c2c 60%, #11e3b7 100%);
+      color: #fff;
+      padding: 54px 0 75px 0;
+      text-align: center;
+      box-shadow: 0 10px 32px rgba(17,200,177,.10);
+      position: relative;
+      z-index: 1;
+    }
+    .cover {
+      max-width:100vw; width:97vw; margin-top:18px; margin-bottom:28px;
+      border-radius:19px; box-shadow:0 8px 38px rgba(23,231,169,0.22);
+    }
+    .logo {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #23ffd5;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 12px #198d8477;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .subtitle {
+      font-size: 1.35rem;
+      color: #f1fffb;
+      font-weight: 500;
+      opacity:0.92;
+    }
+    .founder-block {display:flex;align-items:center;justify-content:center;gap:34px;margin:34px 0 8px;}
+    .founder-pic {width:120px;height:120px;border-radius:50%;object-fit:cover;border:6px solid #19e9bb;box-shadow:0 2px 15px #25254a;}
+    .founder-sign {width:78px;height:auto;}
+    .founder-info {text-align:left;color:#fff;}
+    nav {margin-top:33px;}
+    nav a {color:#e0f7fa;margin:0 24px;text-decoration:none;font-size:1.2rem;font-weight:700;}
+    nav a:hover {color:#23ffd5;background:rgba(34,255,255,.04);border-radius:4px;}
+    /* ======= Main Content Section ======= */
+    main {
+      max-width: 1160px;
+      margin: -65px auto 0;
+      background: rgba(22,40,70,0.86);
+      border-radius: 15px;
+      box-shadow: 0 8px 36px #13d6b133;
+      padding: 38px 40px 22px 40px;
+      position: relative;
+      z-index: 2;
+    }
+    h2 {
+      font-size:2.1rem;
+      color:#23ffd5;
+      margin-top: 47px;
+      font-weight: 700;
+      text-shadow: 0 1px 8px #19e3b780;
+    }
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top:24px;
+    }
+    .service-card {
+      background: linear-gradient(120deg,#101c2c 55%,#19e3b7 120%);
+      color:#e6fff7;
+      padding:33px 26px;
+      border-radius:18px;
+      box-shadow:0 7px 36px rgba(23,231,169,0.13);
+      flex:1 1 350px;
+      min-width:280px;
+      transition:transform 0.18s,box-shadow 0.19s;
+      border:1.7px solid #23ffd535;
+      position:relative;
+      overflow:hidden;
+    }
+    .service-card img {
+      width:65px; height:65px; margin-bottom:16px;
+      filter:drop-shadow(0px 2px 8px #19e3b7aa);
+      background: #23ffd5 linear-gradient(120deg,#23ffd5 30%,#101c2c 100%);
+      border-radius:12px;
+    }
+    .service-card::after {
+      content:'';
+      position:absolute;right:-40px;bottom:-30px;width:120px;height:120px;
+      background:radial-gradient(circle,#19e3b7 15%,transparent 80%);
+      opacity:.28;
+      z-index:0;
+    }
+    .service-card:hover {
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 16px 48px #00ffd678;
+      border-color:#23ffd588;
+    }
+    .service-card h3 {margin-top:0;margin-bottom: 8px;}
+    .service-card p {color:#f4fff8;z-index:1;position:relative;}
+    .cta-box {
+      background:linear-gradient(90deg,#19e3b7 70%,#101c2c 100%);
+      color:#fff;
+      padding:33px;
+      border-radius:18px;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      box-shadow:0 1px 14px #13e3b199;
+      margin-top:10px;
+      font-size:1.13rem;
+    }
+    .cta-btn {
+      background:#101c2c;
+      color:#19e3b7;
+      font-size:1.25rem;
+      border:2.3px solid #23ffd5;
+      padding:15px 28px;
+      border-radius:11px;
+      box-shadow:0 2px 20px #19e3b17a;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:1px;
+      text-decoration:none;
+      margin-top:8px;
+      transition:all .16s;
+    }
+    .cta-btn:hover{background:#19e3b7;color:#fff;}
+    .social-links {margin-top:24px;display:flex;gap:21px;}
+    .social-links a {
+      display:inline-block;width:44px;height:44px;
+      border-radius:50%;
+      background:#19e3b7;
+      text-align:center;
+      line-height:49px;
+      box-shadow:0 2px 5px #19e3b744;
+      color:#101c2c;font-size:2.2rem;
+      border:2px solid #23ffd5;
+      transition:all 0.18s;
+      font-weight:800;
+    }
+    .social-links a:hover{
+      background:#101c2c;color:#23ffd5;border:2px solid #19e3b7;
+    }
+    /* ======= Section Layouts ======= */
+    section {margin-bottom:58px;}
+    /* ======= Footer ======= */
+    footer {
+      margin-top:45px;
+      text-align:center;
+      background:#101c2c;
+      color:#23ffd5;
+      padding:28px 0 18px 0;
+      font-size:1.13rem;
+      border-radius:0 0 15px 15px;
+      letter-spacing:.9px;
+      font-weight:600;
+      box-shadow:0 -1px 16px #19e3b755;
+      position:relative;z-index:2;
+    }
+    @media (max-width:950px) {
+      main {padding:11px 4vw;}
+      .services-grid{flex-direction:column;}
+      .founder-block{flex-direction:column;gap:15px;}
+    }
+    @media (max-width:650px) {
+      .logo{font-size:2rem;}
+      nav{margin-top:16px;}
+      main{padding:9px;}
+      .service-card{min-width:94vw;}
+      .cta-box{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Futuristic Background -->
+  <canvas id="bg-animated"></canvas>
+  <header>
+    
+    <div class="logo">SphereAI</div>
+    <div class="subtitle">
+      Mastering AI • Data Science • NLP • Enterprise Impact
+    </div>
+    <div class="founder-block">
+      <img src="photo2.jpg" class="founder-pic" alt="Founder CEO"/>
+      <div class="founder-info">
+        <div style="font-weight:700;font-size:1.15rem;color:#23ffd5;">Founder & CEO: Rohit Kumar</div>
+        <div style="font-size:1.05rem;">Data Scientist • AI Visionary • Cloud Innovator</div>
+        <img src="sign.jpg" class="founder-sign" alt="Signature"/>
+      </div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="services">
+      <h2>AI Services & Solutions</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://i.imgur.com/awU5iek.png" alt="Automation"/>
+          <h3>Automated Machine Learning Pipelines</h3>
+          <p>Enterprise modeling from data ingestion to deployment, feature engineering, MLOps, and real-time analytics. Accuracy and speed for impact.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://i.imgur.com/v8kZYZh.png" alt="NLP"/>
+          <h3>NLP & Chatbot Systems</h3>
+          <p>AI chatbots, text summarization, semantic document understanding, Transformers (BERT/T5/RAG) for automation and business insight.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://i.imgur.com/B4K4h5x.png" alt="Dashboards"/>
+          <h3>Predictive Dashboards & Visualization</h3>
+          <p>Interactive dashboards and predictive analytics for business intelligence, reporting, and decision optimization.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://i.imgur.com/bb9EqQn.png" alt="Consulting"/>
+          <h3>Enterprise Integration & Consulting</h3>
+          <p>AI strategy, cloud migration, API development, secure scalable deployments, and technologist partnerships for MAANG-level growth.</p>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About SphereAI</h2>
+      <p>
+        Our expertise spans machine learning, NLP, computer vision, and complex tech integration for global enterprises.<br>
+        <strong>Reliability:</strong> Industry certifications. Proven results in large-scale data, AI deployment, and consulting.<br>
+        <strong>Professional Leadership:</strong> TEDx & tech fest organizing, advanced training, project leadership across India and remote.<br>
+        <strong>Certifications:</strong> Cloud, Django, industry platforms.
+      </p>
+    </section>
+    <section id="contact">
+      <h2>Contact & Social</h2>
+      <div class="cta-box">
+        <div>
+          <strong>Email:</strong> rohitmehra.ggh@gmail.com<br>
+          <strong>Phone:</strong> 91 9893983586<br>
+          <strong>HQ:</strong> Jabalpur, India<br>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/rohit-kumar-9a1646302" target="_blank" title="LinkedIn">in</a>
+            <a href="https://github.com/Rohitmehraji" target="_blank" title="GitHub">&#9733;</a>
+            <a href="mailto:rohitmehra.ggh@gmail.com" title="Email">&#9993;</a>
+          </div>
+        </div>
+        <a href="mailto:rohitmehra.ggh@gmail.com" class="cta-btn">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 SphereAI &bull; Mastering AI for Enterprise
+  </footer>
+  <!-- Technical AI Futuristic Canvas Animation -->
+  <script>
+    // Futuristic animated grid
+    const canvas = document.getElementById('bg-animated');
+    const ctx = canvas.getContext('2d');
+    let w, h, t = 0;
+    function resize(){
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(let x=0;x<w;x+=65){
+        for(let y=0;y<h;y+=65){
+          let s = Math.sin(t/29 + (x+y)/(92))*11 +20;
+          ctx.beginPath();
+          ctx.arc(x+13, y+13, s,0,2*Math.PI);
+          ctx.strokeStyle="rgba(35,255,213,.18)";
+          ctx.lineWidth=Math.sin(t/21 + (x-y)/100)*2+1.2;
+          ctx.stroke();
+        }
+      }
+      for(let i=0;i<21;i++){
+        let px = Math.sin(t/7+i)*w*.5+(w/2);
+        let py = Math.cos(t/10+i)*h*.49+(h/2);
+        ctx.beginPath();
+        ctx.arc(px, py, 3.4+Math.cos(t/6+i)*2, 0, Math.PI*2);
+        ctx.fillStyle="rgba(33,255,213,.35)";
+        ctx.fill();
+      }
+      t+=1;
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // Fade-in animation for service cards
+    window.addEventListener('DOMContentLoaded', ()=>{
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach((card, idx) => {card.style.opacity=0; setTimeout(()=>card.style.opacity=1, 155*idx);});
+    });
+  </script>
+  <!-- Contact Form Connection -->
+<script>
+document.getElementById('contactForm').onsubmit = async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  const response = await fetch('http://127.0.0.1:8000/contact', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name, email, message})
+  });
+  const data = await response.json();
+  alert(data.message);
+};
+</script>
+
+<!-- Chatbot Connection -->
+<script>
+document.getElementById('askBtn').onclick = async function(){
+  const question = document.getElementById('chatQuestion').value;
+  const formData = new FormData();
+  formData.append('question', question);
+
+  const response = await fetch('http://127.0.0.1:8000/ai/chat', {
+    method: 'POST',
+    body: formData
+  });
+  const data = await response.json();
+  document.getElementById('chatAnswer').innerText = data.answer;
+};
+</script>
+<!-- Google Fonts for Tech Aesthetic -->
+<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono|Orbitron:700&display=swap" rel="stylesheet">
+
+<style>
+.tech-form, .chat-form {
+  background: linear-gradient(120deg, #1b263c 72%, #23ffd5 110%);
+  border-radius: 17px;
+  box-shadow: 0 4px 25px #23ffd555;
+  padding: 32px 30px 26px 30px;
+  max-width: 370px;
+  margin: 38px auto 26px auto;
+  font-family: 'Share Tech Mono', 'Orbitron', monospace;
+  border: 2px solid #23ffd5;
+  letter-spacing: .7px;
+  position:relative;
+  z-index:2;
+}
+.tech-form h2, .chat-form h2 {
+  color: #23ffd5;
+  font-family: 'Orbitron', monospace;
+  font-weight: bold;
+  margin-bottom:20px;
+  font-size: 1.28rem;
+  text-shadow: 0 2px 16px #23ffd599;
+}
+.tech-inp, .tech-ta {
+  width:98%; padding:11px 13px; margin-bottom: 11px;
+  background: #131c28; color: #23ffd5; border:1.5px solid #23ffd5;
+  border-radius:7px; font-size:1.07rem;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 1px 11px #23ffd528;
+  outline:none; transition: border .2s;
+}
+.tech-inp:focus, .tech-ta:focus { border:2px solid #12eee5; }
+.tech-btn {
+  background: linear-gradient(90deg, #23ffd5 60%, #18a585 100%);
+  color: #0f1827;
+  padding: 10px 32px;
+  border: none; border-radius: 8px;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.09rem; font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #23ffd533; margin-top: 7px;
+  transition: background 0.17s, color 0.17s;
+}
+.tech-btn:hover { background: #131c28; color: #23ffd5; border: 2px solid #23ffd5; }
+#chatAnswer {margin-top:16px;color:#cffffe;font-family:'Share Tech Mono',monospace;}
+</style>
+
+<!-- Contact Form -->
+<form id="contactForm" class="tech-form">
+  <h2>Contact SphereAI</h2>
+  <input class="tech-inp" id="name" type="text" placeholder="Name" required>
+  <input class="tech-inp" id="email" type="email" placeholder="Email" required>
+  <textarea class="tech-ta" id="message" placeholder="Message" required></textarea>
+  <button class="tech-btn" type="submit">Send</button>
+</form>
+
+<!-- Chatbot Form -->
+<form id="chatbotForm" class="chat-form" onsubmit="return false;">
+  <h2>SphereAI Tech Chatbot</h2>
+  <input class="tech-inp" id="chatQuestion" type="text" placeholder="Ask AI anything..." required>
+  <button class="tech-btn" id="askBtn" type="button">Ask</button>
+  <div id="chatAnswer"></div>
+</form>
+
+<script>
+// Contact Form Connect
+ddocument.getElementById('contactForm').onsubmit = async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  const response = await fetch('https://backend-for-shereai-3.onrender.com/contact', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name, email, message})
+  });
+  const data = await response.json();
+  alert(data.message);
+  document.getElementById('contactForm').reset();
+};
+</script>
+
+<script>
+document.getElementById('askBtn').onclick = async function() {
+  const question = document.getElementById('chatQuestion').value;
+  if (!question) return;
+  document.getElementById('chatAnswer').innerText = "AI is typing...";
+  const formData = new FormData();
+  formData.append('question', question);
+
+  const response = await fetch('https://backend-for-shereai-3.onrender.com/ai/chat', {
+    method: 'POST',
+    body: formData
+  });
+  const data = await response.json();
+  document.getElementById('chatAnswer').innerText = data.answer;
+  document.getElementById('chatQuestion').value = '';
+};
+</script>
+
+</body>
+
+
+</html>
+
