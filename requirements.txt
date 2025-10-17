@@ -22,5 +22,5 @@ stripe>=7.0.0
 fastapi-cors
 
 pydantic
-
+gunicorn
 
